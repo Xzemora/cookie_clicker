@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookie Clicker JS", "Cookie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookie Clicker TS", "WebApplication1\Cookie Clicker TS.csproj", "{2688DAC2-40B0-4405-950E-0ACAE53479C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookie Clicker C#", "Cookie Clicker+C#\Cookie Clicker C#.csproj", "{99503754-0E1F-4139-934C-3A93890BEF9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2688DAC2-40B0-4405-950E-0ACAE53479C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2688DAC2-40B0-4405-950E-0ACAE53479C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2688DAC2-40B0-4405-950E-0ACAE53479C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99503754-0E1F-4139-934C-3A93890BEF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99503754-0E1F-4139-934C-3A93890BEF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99503754-0E1F-4139-934C-3A93890BEF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99503754-0E1F-4139-934C-3A93890BEF9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,74 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html ng-app="UpdateCookie" ng-controller="clickNbank">
+<head>
+    <meta charset="utf-8" />
+    <title>{{cookieBankTitle}}Cookie Clicker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="StyleSheet1.css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+
+    <script src="Scripts/angular.min.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-3" id="col1">
+
+                <img class="img-responsive" src="Materials/perfectCookie.png" id="bigCookie" />
+
+
+            </div>
+
+            <div class="col-md-6" id="col2">
+
+                <h1>Statistic</h1>
+
+                <h2>General</h2>
+
+                <p><h4>Cookies in bank:<span id="cookie-bank">{{ SuperCookie.cookieBank }}</span></h4></p>
+                <p><h4>Cookies baked (this ascension):<span id="cookie-baked-asc">{{SuperCookie.cookieAllTime}}</span></h4></p>
+                <p><h4>Cookies baked (all time):<span id="cookie-baked">{{SuperCookie.cookieAllTime}}</span></h4></p>
+                <p><h4>Run started:<span id="run-time"></span></h4></p>
+                <p><h4>Buildings owned:<span id="buildings">{{SuperCookie.buildingsOwn}}</span></h4></p>
+                <p><h4>Cookies per seconds:<span id="cookie-per-sec">{{SuperCookie.cookiePerSec}}</span></h4></p>
+                <p><h4>Cookies per click:<span id="cookie-per-click">{{SuperCookie.cookiePerClick}}</span></h4></p>
+                <p><h4>Cookie clicks:<span id="cookie-clicks">{{SuperCookie.cookieClick}}</span></h4></p>
+                <p><h4>Hand-made cookies:<span id="hand-made-cookie">{{SuperCookie.cookieHandMade}}</span></h4></p>
+                <p><h4>Golden cookie clicks:<span id="golden-cookie-clicks"></span></h4></p><br />
+                <p><h4>Running version:<span>2.012</span></h4></p>
+                <h2>Upgrade:</h2>
+                <p><h4>Upgrades unlocked:</h4></p>
+                <p><h4>Cookies</h4></p>
+                <h2>Achievements</h2>
+                <p><h4>Achievements unlocked:</h4></p>
+                <p><h4>Milk:</h4></p>
+                <p><h4>Milk flavors unlocked:</h4>(Milk is gained with each achievement. It can unlock unique upgrades over times</p>
+            </div>
+            <div class="col-md-3" id="col3">
+                <h1>Store</h1>
+                <div class="flex-container">
+                    <div ng-repeat="boost in boostTable | filter:{type:'click'} ">
+                        <click-boost cb="boost"></click-boost>
+                    </div>
+                    <div ng-repeat="boost in boostTable | filter:{type:'cookie'}">
+                        <cookie-prod-boost cpb="boost"></cookie-prod-boost>
+                    </div>
+                    <div ng-repeat="boost in boostTable | filter:{type:'prod'}">
+                        <prod-boost pb="boost"></prod-boost>
+                    </div>
+                </div>
+                <div id="productors">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="file1.js"></script>
+</body>
+</html>
