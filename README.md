@@ -1,3 +1,5 @@
 # cookie_clicker
-entrainement technos html, css, bootstrap, javascript, typescript, angularJS, C#
-reproduire en partie les fonctionnalité du jeu en ligne cookie clicker orteil.dashnet.org/cookieclicker
+
+Entrainement technos html, css, bootstrap, javascript, typescript, angularJS, C#.
+
+Reproduire en partie les fonctionnalités du jeu en ligne cookie clicker orteil.dashnet.org/cookieclicker.
