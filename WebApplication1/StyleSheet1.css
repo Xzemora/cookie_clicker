@@ -1,0 +1,41 @@
+﻿body{
+    position:relative;    
+}
+h1{
+    text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+}
+.citation{
+    color: dimgrey;    
+}
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: -75%;        
+    width: 300px;
+    height: auto;
+    color: #fff;    
+    border-radius: 6px;
+    padding: 5px;    
+    background: #000;
+    border: 1px solid #808080;
+    visibility: hidden;
+    opacity: 0;    
+    transition: all 1s ease-out 0s;
+}
+
+button:hover div.tooltip{
+    visibility: visible;
+    opacity:0.9;
+}
+
+#productors{
+    display:flex;
+    flex-direction: column;
+    padding-top:2em;
+}
+

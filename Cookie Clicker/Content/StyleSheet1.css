@@ -1,0 +1,17 @@
+﻿body {
+}
+h1{
+    text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#items{
+    display:flex;
+    flex-direction: column;
+    padding-top:2em;
+}
+
