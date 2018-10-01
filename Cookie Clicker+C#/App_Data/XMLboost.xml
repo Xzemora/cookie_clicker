@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BoostClass>
+  <Boosts>
+    <ClickBoosts>
+      <ClickBoost>
+        <name>Mouse Boost</name>
+        <price>10</price>
+        <multiplier>0.25</multiplier>
+        <index>1</index>
+        <quote>It is not in the stars to hold our destiny but in ourselves.</quote>
+      </ClickBoost>
+      <ClickBoost>
+        <name>Mouse Boost</name>
+        <price>20</price>
+        <multiplier>0.25</multiplier>
+        <index>2</index>
+        <quote>Love all, trust a few, do wrong to none.</quote>
+      </ClickBoost>
+      <ClickBoost>
+        <name>Mouse Boost</name>
+        <price>30</price>
+        <multiplier>0.25</multiplier>
+        <index>3</index>
+        <quote>A fool thinks himself to be wise, but a wise man knows himself to be a fool.</quote>
+      </ClickBoost>        
+      </ClickBoosts>
+    <CookieBoosts>
+      <CookieBoost>
+        <name>Cookie Boost</name>
+        <price>20</price>
+        <multiplier>0.5</multiplier>
+        <index>1</index>
+        <quote>No legacy is so rich as honesty.</quote>
+      </CookieBoost>
+      <CookieBoost>
+        <name>Cookie Boost</name>
+        <price>40</price>
+        <multiplier>0.5</multiplier>
+        <index>2</index>
+        <quote>There is nothing either good or bad but thinking makes it so.</quote>
+      </CookieBoost>
+      <CookieBoost>
+        <name>Cookie Boost</name>
+        <price>80</price>
+        <multiplier>0.5</multiplier>
+        <index>3</index>
+        <quote>Some are born great, some achieve greatness, and some have greatness thrust upon them.</quote>
+      </CookieBoost>
+    </CookieBoosts>
+    <CursorBoosts>
+      <CursorBoost>
+        <name>Cursor</name>
+        <price>20</price>
+        <multiplier>2</multiplier>
+        <index>1</index>
+        <quote>If music be the food of love, play on.</quote>
+      </CursorBoost>
+      <CursorBoost>
+        <name>Cursor</name>
+        <price>40</price>
+        <multiplier>2</multiplier>
+        <index>2</index>
+        <quote>We know what we are, but know not what we may be.</quote>
+      </CursorBoost>
+      <CursorBoost>
+        <name>Cursor</name>
+        <price>60</price>
+        <multiplier>2</multiplier>
+        <index>3</index>
+        <quote>Hell is empty and all the devils are here.</quote>
+      </CursorBoost>
+    </CursorBoosts>
+    <GrandMaBoosts>
+      <GrandMaBoost>
+        <name>GrandMa</name>
+        <price>50</price>
+        <multiplier>2</multiplier>
+        <index>1</index>
+        <quote>One touch of nature makes the whole world kin.</quote>
+      </GrandMaBoost>
+      <GrandMaBoost>
+        <name>GrandMa</name>
+        <price>75</price>
+        <multiplier>2</multiplier>
+        <index>2</index>
+        <quote>The course of true love never did run smooth.</quote>
+      </GrandMaBoost>
+      <GrandMaBoost>
+        <name>GrandMa</name>
+        <price>100</price>
+        <multiplier>2</multiplier>
+        <index>3</index>
+        <quote>Cowards die many times before their deaths; the valiant never taste of death but once.</quote>
+      </GrandMaBoost>
+    </GrandMaBoosts>
+  </Boosts>
+</BoostClass>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ProdClass>
+<Producteurs>
+  <Prod>
+    <name>Cursor</name>
+    <cps>0.25</cps>
+    <price>10</price>
+  </Prod>
+  <Prod>
+    <name>GrandMa</name>
+    <cps>1</cps>
+    <price>50</price>
+  </Prod>  
+</Producteurs>
+</ProdClass>

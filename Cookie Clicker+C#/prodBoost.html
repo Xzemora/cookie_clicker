@@ -1,4 +1,4 @@
-﻿<button id='{{pb.id}}' type="button" class="btn btn-default boost">
+﻿<button id='{{pb.id}}'  type="button" class="btn btn-default boost" ng-disabled="!(pb.isEnabled())">
     <img src="Materials/{{pb.name}}.png" width="50"/>
     <div class='tooltip'>
     <h4><img src="Materials/{{pb.name}}.png" width="25"/>{{pb.name}} boost {{pb.index}}</h4>

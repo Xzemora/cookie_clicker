@@ -7,13 +7,23 @@
     <meta charset="utf-8" />
     <title>{{cookieBankTitle}}Cookie Clicker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="StyleSheet1.css" />
-    <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <script src="Scripts/jquery-3.3.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/StyleSheet1.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 
-    <script src="Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var producteurs = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.producteur));
+            var clickBoost = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.clickBoost));
+            var prodBoost = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.prodBoost));
+            var cursorBoost = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.cursorBoost));
+            var grandmaBoost = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.grandmaBoost));
 
+            init(producteurs.Prod, clickBoost, prodBoost, cursorBoost, grandmaBoost);
+        });
+    </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -54,21 +64,28 @@
             <div class="col-md-3" id="col3">
                 <h1>Store</h1>
                 <div class="flex-container">
-                    <div ng-repeat="boost in boostTable | filter:{type:'click'} ">
-                        <click-boost cb="boost"></click-boost>
+                    <div ng-repeat="boost in boostTable | filter:{type:'click'}">
+                        <click-boost cb="boost" ng-click="boost.click()" ng-hide="boost.bought"></click-boost>
                     </div>
                     <div ng-repeat="boost in boostTable | filter:{type:'cookie'}">
-                        <cookie-prod-boost cpb="boost"></cookie-prod-boost>
+                        <cookie-prod-boost cpb="boost" ng- ng-click="boost.click()" ng-hide="boost.bought" ></cookie-prod-boost>
                     </div>
                     <div ng-repeat="boost in boostTable | filter:{type:'prod'}">
-                        <prod-boost pb="boost"></prod-boost>
+                        <prod-boost pb="boost" ng-click="boost.click()" ng-hide="boost.bought" ></prod-boost>
                     </div>
                 </div>
-                <div id="productors">
+                <div id="productors" ng-repeat="prod in productorTable">
+                    <button id="{{prod.id}}" type="button" class="btn btn-default btn-block" data-toggle="tooltip" data-placement="left" title="{{prod.cps}} cookie par seconds" ng-click="prod.click()" ng-disabled="!(prod.isEnabled())">
+                    <p><span class="name">{{prod.name}}</span><br/>
+                        <span class="price">{{prod.price}}</span><br/>
+                        <span class="nb">{{prod.nb}}</span>
+                        </p>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <script src="file1.js"></script>
+    <script src="~/file1.js"></script>
+    
 </body>
 </html>
