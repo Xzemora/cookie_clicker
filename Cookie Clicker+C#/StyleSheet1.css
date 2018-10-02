@@ -39,3 +39,15 @@ button:hover div.tooltip{
     padding-top:2em;
 }
 
+div#BoxNews {
+    
+    border-bottom: 5px solid gray;
+    margin: 0px 0px 0px 0px;
+    padding: 20px 0px 20px 0px;
+}
+div p#news {
+    
+    font-size: 30px;
+    text-align: center;
+}
+

@@ -1,4 +1,34 @@
-﻿var app = angular.module('UpdateCookie', []);
+﻿$(function () {
+
+    setInterval(function () {
+
+
+        $.ajax({
+            method: 'GET',
+            url: '/Home/News',
+            dataType: 'json',
+            success: function (res: any): void {
+
+                let quote: string = JSON.stringify(res[getRandomInt(0, res.length)]);
+
+                $('#news')
+                    .fadeOut(2000)
+                    .queue(function () {
+                        $(this).empty().dequeue();
+                        $(this).append(`<quote>${quote}</quote>`).dequeue();
+                        $(this).fadeIn(2000).dequeue();
+                    })
+
+
+
+            }
+
+        })
+    }, 5000)
+
+})
+
+var app = angular.module('UpdateCookie', []);
 app.controller('clickNbank', function ($scope){
 
     
@@ -335,6 +365,13 @@ class prodMultiplierBoost extends Boost {
         }
     }
 }
+function getRandomInt(min: number, max: number): number {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
 
         
 

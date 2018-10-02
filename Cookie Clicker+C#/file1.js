@@ -11,6 +11,25 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+$(function () {
+    setInterval(function () {
+        $.ajax({
+            method: 'GET',
+            url: '/Home/News',
+            dataType: 'json',
+            success: function (res) {
+                var quote = JSON.stringify(res[getRandomInt(0, res.length)]);
+                $('#news')
+                    .fadeOut(2000)
+                    .queue(function () {
+                    $(this).empty().dequeue();
+                    $(this).append("<quote>" + quote + "</quote>").dequeue();
+                    $(this).fadeIn(2000).dequeue();
+                });
+            }
+        });
+    }, 5000);
+});
 var app = angular.module('UpdateCookie', []);
 app.controller('clickNbank', function ($scope) {
     $scope.SuperCookie = superCookie;
@@ -275,4 +294,9 @@ var prodMultiplierBoost = /** @class */ (function (_super) {
     };
     return prodMultiplierBoost;
 }(Boost));
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 //# sourceMappingURL=file1.js.map

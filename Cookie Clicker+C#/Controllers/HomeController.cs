@@ -34,5 +34,18 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+
+        public ActionResult News()
+        {
+            string[] citations = new string[]
+            {
+                "To be or not to be",
+                "Test1",
+                "Test2"
+            };
+
+
+            return Json(citations, JsonRequestBehavior.AllowGet);
+        }
     }
 }
