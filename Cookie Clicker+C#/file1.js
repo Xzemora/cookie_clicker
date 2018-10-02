@@ -12,20 +12,28 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 $(function () {
-    setInterval(function () {
+    var generateQuote = setInterval(function () {
         $.ajax({
             method: 'GET',
             url: '/Home/News',
             dataType: 'json',
             success: function (res) {
                 var quote = JSON.stringify(res[getRandomInt(0, res.length)]);
-                $('#news')
-                    .fadeOut(2000)
-                    .queue(function () {
-                    $(this).empty().dequeue();
-                    $(this).append("<quote>" + quote + "</quote>").dequeue();
-                    $(this).fadeIn(2000).dequeue();
-                });
+                var box = document.getElementById('news');
+                if (box != null) {
+                    $('#' + box)
+                        .fadeOut(2000)
+                        .queue(function () {
+                        $(this).empty().dequeue();
+                        $(this).append("<quote>" + quote + "</quote>").dequeue();
+                        $(this).fadeIn(2000).dequeue();
+                    });
+                }
+                else {
+                    $('#' + box)
+                        .append("<quote>" + quote + "</quote>")
+                        .fadeIn(2000);
+                }
             }
         });
     }, 5000);

@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    setInterval(function () {
+    let generateQuote = setInterval(function () {
 
 
         $.ajax({
@@ -10,14 +10,20 @@
             success: function (res: any): void {
 
                 let quote: string = JSON.stringify(res[getRandomInt(0, res.length)]);
-
-                $('#news')
-                    .fadeOut(2000)
-                    .queue(function () {
-                        $(this).empty().dequeue();
-                        $(this).append(`<quote>${quote}</quote>`).dequeue();
-                        $(this).fadeIn(2000).dequeue();
-                    })
+                let box = document.getElementById('news');
+                if (box != null) {
+                    $('#' + box)
+                        .fadeOut(2000)
+                        .queue(function () {
+                            $(this).empty().dequeue();
+                            $(this).append(`<quote>${quote}</quote>`).dequeue();
+                            $(this).fadeIn(2000).dequeue();
+                        })
+                } else {
+                    $('#' + box)
+                        .append(`<quote>${quote}</quote>`)
+                        .fadeIn(2000);
+                }    
 
 
 
