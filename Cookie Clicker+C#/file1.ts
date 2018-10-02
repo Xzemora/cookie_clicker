@@ -1,6 +1,7 @@
-﻿$(function () {
+﻿//Request ajax
+$(function () {
 
-    let generateQuote = setInterval(function () {
+    setInterval(function () {
 
 
         $.ajax({

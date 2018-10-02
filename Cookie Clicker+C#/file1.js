@@ -11,8 +11,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+//Request ajax
 $(function () {
-    var generateQuote = setInterval(function () {
+    setInterval(function () {
         $.ajax({
             method: 'GET',
             url: '/Home/News',
