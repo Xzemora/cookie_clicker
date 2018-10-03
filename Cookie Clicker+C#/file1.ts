@@ -48,7 +48,7 @@ app.controller('clickNbank', function ($scope){
 
             $('#bigCookie').on('click', () => {
                 let newCookie = 1 * superCookie.cookiePerClick;
-                superCookie.cookieClick += newCookie;
+                superCookie.cookieClick++;
                 superCookie.cookieBank += newCookie;
                 superCookie.cookieAllTime += newCookie;
                 superCookie.cookieHandMade += newCookie;
@@ -158,7 +158,7 @@ app.controller('clickNbank', function ($scope){
         //Gestion positionnement tooltip par rapport à la souris.
         $(function () {
             let objRectFlex = document.querySelector(".flex-container").getBoundingClientRect();
-            $(".flex-container").hover(function () { }).mousemove(function (e) {
+            $(".flex-container").mousemove(function (e) {
                 let mousey = e.clientY - objRectFlex.top;
                 $('.tooltip').css("top", mousey);
             })
