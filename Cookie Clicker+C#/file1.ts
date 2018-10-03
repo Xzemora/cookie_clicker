@@ -13,7 +13,7 @@ $(function () {
                 let quote: string = JSON.stringify(res[getRandomInt(0, res.length)]);
                 let box = document.getElementById('news');
                 if (box != null) {
-                    $('#' + box)
+                    $(box)
                         .fadeOut(2000)
                         .queue(function () {
                             $(this).empty().dequeue();
@@ -21,7 +21,7 @@ $(function () {
                             $(this).fadeIn(2000).dequeue();
                         })
                 } else {
-                    $('#' + box)
+                    $(box)
                         .append(`<quote>${quote}</quote>`)
                         .fadeIn(2000);
                 }    
