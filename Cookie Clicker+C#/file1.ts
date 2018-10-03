@@ -195,7 +195,10 @@ let superCookie = {
     cookieAllTime: 0,
     cookieHandMade: 0,
     cookiePerSec: 0,
-    buildingsOwn: 0
+    buildingsOwn: 0,
+    cumulM: 0,
+    cpsProd: 0,
+    cumulCb:0
 }
 
 let productorTable: Productor[] = [];
@@ -225,8 +228,8 @@ class Productor {
                 this.nb++;
                 superCookie.buildingsOwn++;
                 this.price += this.price * 0.1 * this.nb;
-                superCookie.cookiePerSec += this.cps;
-                
+            superCookie.cpsProd += this.cps;
+            calculCps();
             
         }
     }
@@ -315,7 +318,7 @@ class Boost {
             superCookie.cookieBank -= this.price;
             this.bought = true;
             this.effect();
-            //$("#" + this.id).remove();
+            calculCps();
         }
     }
 
@@ -334,7 +337,8 @@ class cookieClickBoost extends Boost {
     }
 
     effect() {
-        superCookie.cookiePerClick += this.multiplier * superCookie.cookiePerSec;
+        
+        superCookie.cumulCb += this.multiplier;
         //$scope.$disgest();
     }
 }
@@ -347,7 +351,7 @@ class cookieProdBoost extends Boost {
 
     }
     effect() {
-        superCookie.cookiePerSec *= 1 + this.multiplier;
+        superCookie.cumulM += this.multiplier;
         //$scope.$digest();
     }
 }
@@ -363,9 +367,9 @@ class prodMultiplierBoost extends Boost {
         for (let i = 0; i < productorTable.length; i++) {
             let item = productorTable[i];
             if (item.name === this.name) {
-                superCookie.cookiePerSec -= item.cps * item.nb;
+                superCookie.cpsProd -= item.cps * item.nb;
                 item.cps *= this.multiplier;
-                superCookie.cookiePerSec += item.cps * item.nb;
+                superCookie.cpsProd += item.cps * item.nb;
 
                 //$scope.$digest();
             }
@@ -378,7 +382,17 @@ function getRandomInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
+function calculCps(): void {
+    if (superCookie.cumulM == 0) {
+            superCookie.cookiePerSec = superCookie.cpsProd;
+    } else if (superCookie.cpsProd == 0) {
+        return;
+    } else
+    {
+            superCookie.cookiePerSec = superCookie.cpsProd * superCookie.cumulM;
+    }
+    superCookie.cookiePerClick = superCookie.cookiePerSec * superCookie.cumulCb + 1
+}
 
         
 

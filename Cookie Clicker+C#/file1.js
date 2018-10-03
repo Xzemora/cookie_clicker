@@ -163,7 +163,10 @@ var superCookie = {
     cookieAllTime: 0,
     cookieHandMade: 0,
     cookiePerSec: 0,
-    buildingsOwn: 0
+    buildingsOwn: 0,
+    cumulM: 0,
+    cpsProd: 0,
+    cumulCb: 0
 };
 var productorTable = [];
 var Productor = /** @class */ (function () {
@@ -182,7 +185,8 @@ var Productor = /** @class */ (function () {
             this.nb++;
             superCookie.buildingsOwn++;
             this.price += this.price * 0.1 * this.nb;
-            superCookie.cookiePerSec += this.cps;
+            superCookie.cpsProd += this.cps;
+            calculCps();
         }
     };
     Productor.prototype.isEnabled = function () {
@@ -252,7 +256,7 @@ var Boost = /** @class */ (function () {
             superCookie.cookieBank -= this.price;
             this.bought = true;
             this.effect();
-            //$("#" + this.id).remove();
+            calculCps();
         }
     };
     Boost.prototype.isEnabled = function () {
@@ -267,7 +271,7 @@ var cookieClickBoost = /** @class */ (function (_super) {
         //$("#" + this.id).append(`<img src="Materials/glowing_cursor.png" width="50px"/><div class="tooltip"><h4><img src="Materials/glowing_cursor.png" width="25px"/>${this.name} boost ${this.index}</h4><p><span class='effect'>Clicking gains +${this.multiplier * 100}%</span><br/><span class="price">Price:${this.price}</span><br/><span class='citation'><q>${this.citation}</q><br/><em>Shakespeare</em></span></p></div>`);
     }
     cookieClickBoost.prototype.effect = function () {
-        superCookie.cookiePerClick += this.multiplier * superCookie.cookiePerSec;
+        superCookie.cumulCb += this.multiplier;
         //$scope.$disgest();
     };
     return cookieClickBoost;
@@ -279,7 +283,7 @@ var cookieProdBoost = /** @class */ (function (_super) {
         //$("#" + this.id).append(`<img src="Materials/cookies-icon.png" width="50px"/><div class='tooltip'><h4><img src="Materials/cookies-icon.png" width="25px"/>${this.name} boost ${this.index}</h4><p><span class='effect'>Cookie production multiplier +${this.multiplier * 100}% of your Cps.</span><br/><span class="price">Price:${this.price}</span><br/><span class='citation'><q>${this.citation}</q><br/><em>Shakespeare</em></span></p></div>`);
     }
     cookieProdBoost.prototype.effect = function () {
-        superCookie.cookiePerSec *= 1 + this.multiplier;
+        superCookie.cumulM += this.multiplier;
         //$scope.$digest();
     };
     return cookieProdBoost;
@@ -294,9 +298,9 @@ var prodMultiplierBoost = /** @class */ (function (_super) {
         for (var i = 0; i < productorTable.length; i++) {
             var item = productorTable[i];
             if (item.name === this.name) {
-                superCookie.cookiePerSec -= item.cps * item.nb;
+                superCookie.cpsProd -= item.cps * item.nb;
                 item.cps *= this.multiplier;
-                superCookie.cookiePerSec += item.cps * item.nb;
+                superCookie.cpsProd += item.cps * item.nb;
                 //$scope.$digest();
             }
         }
@@ -307,5 +311,17 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
+}
+function calculCps() {
+    if (superCookie.cumulM == 0) {
+        superCookie.cookiePerSec = superCookie.cpsProd;
+    }
+    else if (superCookie.cpsProd == 0) {
+        return;
+    }
+    else {
+        superCookie.cookiePerSec = superCookie.cpsProd * superCookie.cumulM;
+    }
+    superCookie.cookiePerClick = superCookie.cookiePerSec * superCookie.cumulCb + 1;
 }
 //# sourceMappingURL=file1.js.map
